@@ -7,17 +7,17 @@ public class EmpWageComputation
     public static final int TOTAL_DAYS=20;
 
     public static void main(String[]args)
-    {
-      System.out.println("welcome to employee wage computation program ");
+     {
+     System.out.println("welcome to employee wage computation program ");
        
-      EmpWageComputation emp= new EmpWageComputation();
-      emp.calculateWage();
+     EmpWageComputation emp= new EmpWageComputation();
+     emp.calculateWage();
      }
          public  void calculateWage()
          {
            int empHrs;
            int empWage;
-           
+           int totalEmpWage=0;
 
            for(int day=1 ; day<=TOTAL_DAYS ; day++ )
            {
@@ -38,10 +38,11 @@ public class EmpWageComputation
             default:
                   System.out.println("employee is Absent");
                     empHrs=0;
-           }
-             
+            }
             empWage=empHrs*EMP_RATE_PER_HOUR;
-            System.out.println("Employee Wage: " + empWage);
-         }
+            totalEmpWage=totalEmpWage+empWage;
+            System.out.println("employee wage:"+empWage);
+            }
+            System.out.println("total wage:"+totalEmpWage);
      }
 }
