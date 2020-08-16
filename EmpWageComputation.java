@@ -18,31 +18,35 @@ public class EmpWageComputation
            int empHrs;
            int empWage;
            int totalEmpWage=0;
+           int totalMaxEmpHrs=100;
+           int totalHrs=0;
+           int totalWorkingDays=0;
 
-           for(int day=1 ; day<=TOTAL_DAYS ; day++ )
-           {
+         while( totalHrs<=totalMaxEmpHrs && totalWorkingDays<=TOTAL_DAYS)
+         {
+            totalWorkingDays++;
             int randomCheck =(int)((Math.random()*10)%3);
 
-            switch(randomCheck)
-            {
-            case PART_TIME_EMP:
-                 System.out.println("employee is Part time");
-                     empHrs=4;
-                      break;
+         switch(randomCheck)
+         {
+          case PART_TIME_EMP:
+               empHrs=4;
+               break;
 
-            case FULL_TIME_EMP:
-                 System.out.println("employee is Full time");
-                     empHrs=8;
-                      break;
+         case FULL_TIME_EMP:
+              empHrs=8;
+              break;
 
-            default:
-                  System.out.println("employee is Absent");
-                    empHrs=0;
-            }
-            empWage=empHrs*EMP_RATE_PER_HOUR;
-            totalEmpWage=totalEmpWage+empWage;
-            System.out.println("employee wage:"+empWage);
-            }
-            System.out.println("total wage:"+totalEmpWage);
-     }
+         default:
+                empHrs=0;
+         }
+         totalHrs=totalHrs+empHrs;
+
+         }
+          totalEmpWage=totalHrs*EMP_RATE_PER_HOUR;
+          System.out.println("total Hrs:"+totalHrs);
+
+          System.out.println("total wage:"+totalEmpWage);
+    }
+
 }
